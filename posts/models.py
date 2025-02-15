@@ -19,8 +19,8 @@ class Post(models.Model):
     rate = models.IntegerField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
-    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
-    tags = models.ManyToManyField(Tag, blank=True, null=True)
+    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE, related_name='category')
+    tags = models.ManyToManyField(Tag, blank=True, related_name='tags')
 
     def __str__(self):
         return f"{self.title} - {self.content}"
