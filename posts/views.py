@@ -12,10 +12,10 @@ def html_view(request):
     return render(request,"main.html")
 
 def post_list_view(request):
-    posts = (Post.objects.all())
+    post = (Post.objects.all())
     print(posts)
-    return render(request,"posts/post_list.html",{"posts":posts})
+    return render(request,"posts/post_list.html",{"posts":post})
 
 def post_detail_view(request, post_id):
     post = Post.objects.get(id=post_id)
-    return render(request,"posts/post_detail.html",{"posts":posts})
+    return render(request,"posts/post_detail.html", {"posts":post})
